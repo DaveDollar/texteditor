@@ -1,10 +1,16 @@
 from tkinter import *
+from tkinter import filedialog
 
 root = Tk()
 root.title('Text Editor')
 root.geometry('1000x600')
-
+root.resizable(False, False)
 root.configure(bg='#313031')
+
+def conf():
+    tart = confirm.get()
+    text.config(state=NORMAL)
+    text.insert(tart)
 
 menubar = Menu(root)
 root.config(menu=menubar)
@@ -28,14 +34,14 @@ file_menu.add_command(
 )
 
 
-sbar = Scrollbar(root, orient='vertical')
-sbar.pack(side=RIGHT, fill='y')
-
-text = Text(root, wrap=WORD, height=100, width=110, yscrollcommand=sbar.set)
-sbar.config(command=text.yview)
+text = Text(root, wrap=WORD, height=20, width=83, font=('Arial', 16), state=DISABLED)
 text.pack()
 
+entry = Entry(root, font=('Arial', 16))
+entry.pack(pady=20)
 
+confirm = Button(root, text='Oké', font=('Arial', 16), command=conf)
+confirm.pack()
 
 
 
