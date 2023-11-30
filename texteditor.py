@@ -8,9 +8,10 @@ root.resizable(False, False)
 root.configure(bg='#313031')
 
 def conf():
-    tart = confirm.get()
+    tart = entry.get()
     text.config(state=NORMAL)
-    text.insert(tart)
+    text.insert(END, f'{tart} ')
+    entry.delete(0,END)
 
 menubar = Menu(root)
 root.config(menu=menubar)
