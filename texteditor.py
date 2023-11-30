@@ -111,6 +111,11 @@ def choose_color():
     except TclError:
         messagebox.showwarning('Error', 'Nem jelöltél ki semmit!')
 
+def new_page():
+    text.config(state=NORMAL)
+    text.delete('1.0', END)
+    text.config(state=DISABLED)
+
 menubar = Menu(root)
 root.config(menu=menubar)
 file_menu = Menu(menubar, tearoff=False)
@@ -141,6 +146,10 @@ underline_button.grid(row=0, column=2, padx=5)
 colorimg = PhotoImage(file='./color-text.png')
 color_button = Button(format_frame, image=colorimg, command=choose_color, font=('Arial', 12), bg='#D3D3D3')
 color_button.grid(row=0, column=3, padx=5)
+
+newpageimg = PhotoImage(file='./file.png')
+newpage_button = Button(format_frame, image=newpageimg, command=new_page, font=('Arial', 12), bg='#D3D3D3')
+newpage_button.grid(row=0, column=4, padx=5)
 
 text = Text(root, wrap=WORD, height=20, width=83, font=('Arial', 16), state=DISABLED, bg='#D3D3D3')
 text.pack()
