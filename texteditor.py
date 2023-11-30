@@ -8,6 +8,7 @@ root.title('Notepad++++')
 root.geometry('1000x700')
 root.resizable(False, False)
 root.configure(bg='#313031')
+root.iconbitmap('./calendar-lines-pen.ico')
 
 def conf(event):
     text_content = entry.get()
@@ -72,42 +73,42 @@ def quit_app():
 
 def bold_text():
     try:
-        current_tags = text.tag_names("sel.first")
-        if "bold" in current_tags:
-            text.tag_remove("bold", "sel.first", "sel.last")
+        current_tags = text.tag_names('sel.first')
+        if 'bold' in current_tags:
+            text.tag_remove('bold', 'sel.first', 'sel.last')
         else:
-            text.tag_add("bold", "sel.first", "sel.last")
-            text.tag_configure("bold", font=('Arial', 16, 'bold'))
+            text.tag_add('bold', 'sel.first', 'sel.last')
+            text.tag_configure('bold', font=('Arial', 16, 'bold'))
     except TclError:
         messagebox.showwarning('Error', 'Nem jelöltél ki semmit!')
 
 def italic_text():
     try:
-        current_tags = text.tag_names("sel.first")
-        if "italic" in current_tags:
-            text.tag_remove("italic", "sel.first", "sel.last")
+        current_tags = text.tag_names('sel.first')
+        if 'italic' in current_tags:
+            text.tag_remove('italic', 'sel.first', 'sel.last')
         else:
-            text.tag_add("italic", "sel.first", "sel.last")
-            text.tag_configure("italic", font=('Arial', 16, 'italic'))
+            text.tag_add('italic', 'sel.first', 'sel.last')
+            text.tag_configure('italic', font=('Arial', 16, 'italic'))
     except TclError:
         messagebox.showwarning('Error', 'Nem jelöltél ki semmit!')
 
 def underline_text():
     try:
-        current_tags = text.tag_names("sel.first")
-        if "underline" in current_tags:
-            text.tag_remove("underline", "sel.first", "sel.last")
+        current_tags = text.tag_names('sel.first')
+        if 'underline' in current_tags:
+            text.tag_remove('underline', 'sel.first', 'sel.last')
         else:
-            text.tag_add("underline", "sel.first", "sel.last")
-            text.tag_configure("underline", underline=True)
+            text.tag_add('underline', 'sel.first', 'sel.last')
+            text.tag_configure('underline', underline=True)
     except TclError:
         messagebox.showwarning('Error', 'Nem jelöltél ki semmit!')
 
 def choose_color():
     try:
         color_code = colorchooser.askcolor()[1]
-        text.tag_add("color", "sel.first", "sel.last")
-        text.tag_configure("color", foreground=color_code)
+        text.tag_add('color', 'sel.first', 'sel.last')
+        text.tag_configure('color', foreground=color_code)
     except TclError:
         messagebox.showwarning('Error', 'Nem jelöltél ki semmit!')
 
