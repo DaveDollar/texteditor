@@ -5,7 +5,7 @@ from tkinter import colorchooser
 
 root = Tk()
 root.title('Notepad++++')
-root.geometry('1000x700')
+root.geometry('1000x720')
 root.resizable(False, False)
 root.configure(bg='#313031')
 root.iconbitmap('./calendar-lines-pen.ico')
